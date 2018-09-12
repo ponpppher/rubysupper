@@ -1,0 +1,61 @@
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <h1>テスト！！！！！！！！！！！！！</h1>
+
+    <% require 'pg' %>
+
+    <% connection = PG::connect(dbname: "goya") %>
+    <% connection.internal_encoding = "UTF-8" %>
+
+    <form action='indicate.cgi' method='POST'>
+       下記に文字を入力してください<br><br>
+      <input type="text"  name='input' > <br>
+      <input type="submit" name="送信" >
+    </form>
+
+
+    <% result = connection.exec("select date, weight, give_for from crops;") %>
+    <% date = [] %>
+
+    <% result.each do |record| %>
+      <%  date << "ゴーヤの大きさ：#{record["weight"]}　売った相手：#{record["give_for"]}" %>
+    <% end %>
+
+    <form action='goya.cgi' method='POST'>
+       下記のボタンを押すと、ゴーヤの大きさと売った相手の情報ページに飛びます<br><br>
+       <!-- type="hidden"はデータを隠して保持しておくための記述 -->
+       <!-- valueには、送りたいデータを代入する -->
+       <!-- name="goya"を、情報の目印とする -->
+      <input type="text" name="goya" value=<%= date.join('"') %>>
+      <input type="submit" name="送信" >
+    </form>
+
+
+    <% giveresult = connection.exec("select weight, date, give_for from crops where give_for != '自家消費';") %>
+   <% givedate =[] %>
+
+   <%  giveresult.each do | grecord | %>
+      <%  givedate << "ゴーヤの大きさ：#{grecord["weight"]}　売った相手：#{grecord["give_for"]}" %>
+   <% end %>
+   <form action='givefor.cgi' method='POST'>
+      <input type ="text" name="givefor" value=<%= givedate.join('"') %>> 
+      <input type="submit" name="送信" >
+   </form>
+
+
+    <% qresult = connection.exec("select quality, date, give_for from crops where quality = false ;") %>
+   <% qdate = [] %>
+
+   <%  qresult.each do | qrecord | %>
+      <%  qdate << "quality：#{qrecord["quality"]}　date:#{qrecord["date"]}　売った相手：#{qrecord["give_for"]}" %>
+   <% end %>
+   <form action='quality.cgi' method='POST'>
+      <input type ="text" name="quality" value=<%= qdate.join('"') %>> 
+      <input type="submit" name="送信" >
+   </form>
+
+  </body>
+</html>
