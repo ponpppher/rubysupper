@@ -4,7 +4,7 @@ server = WEBrick::HTTPServer.new({
   DocumentRoot: '127.0,0,1',
   BindAddress:  '0.0.0.0',
   Port: 8080,
-  CGIInterpreter: '/home/koyanosts/.rbenv/shims/ruby'
+  CGIInterpreter: '${home}/.rbenv/shims/ruby'
   #CGIInterpreter: 'usr/local/rvm/rubies/ruby-2.5.1/bin/ruby'
 })
 
