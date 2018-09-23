@@ -1,0 +1,13 @@
+<p>this page is show detail</p>
+
+<table>
+<tr>
+  <th> title</th>
+  <th> content</th>
+</tr>
+
+<tr>
+  <td><%= @blog.title %></td>
+  <td><%= @blog.content %></td>
+  <td> <%= link_to 'confirm detail', blog_path(@blog.id) %></td>
+</tr>
