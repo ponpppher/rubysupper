@@ -10,6 +10,7 @@ class ListsController < ApplicationController
     redirect_to new_list_path
   end
   def edit
+    @list = List.find(params[:id])
   end
 
   private
