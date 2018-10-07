@@ -9,6 +9,8 @@ class ListsController < ApplicationController
     List.create(list_params)
     redirect_to new_list_path
   end
+  def edit
+  end
 
   private
   def list_params
