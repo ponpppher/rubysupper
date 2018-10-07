@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   def index
+    @list = List.all.reverse_order
   end
   def new
     @list = List.new
