@@ -6,8 +6,12 @@ class ListsController < ApplicationController
     @list = List.new
   end
   def create
-    List.create(list_params)
-    redirect_to new_list_path
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to lists_path, notice:"new talking"
+    else
+      render 'new'
+    end
   end
   def edit
     @list = List.find(params[:id])
