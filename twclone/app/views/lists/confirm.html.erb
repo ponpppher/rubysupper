@@ -7,7 +7,6 @@ confirm page
 
 <%= form_with(model:@list, url:new_list_path, local:true, method: 'get') do | form | %>
   <%= form.hidden_field :content %>
-  <p> content: <%= @list.content %> </p>
   <%= form.submit "return new talk", name: 'back' %>
 <% end %>
 
