@@ -9,7 +9,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path, notice:"new talking"
+      redirect_to lists_path, notice:"add new talk"
     else
       render 'new'
     end
@@ -18,7 +18,7 @@ class ListsController < ApplicationController
   end
   def update
     if @list.update(list_params)
-      redirect_to lists_path, notice:"edit talking"
+      redirect_to lists_path, notice:"edit talk"
     else
       render 'edit'
     end
