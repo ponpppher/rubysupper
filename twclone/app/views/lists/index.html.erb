@@ -14,7 +14,7 @@
         </tr>
         <tr class="btn btn_eddit">
           <td><%= link_to 'edit', edit_list_path(list.id) %></td>
-          <td><%= link_to 'delete', list_path(list.id) %></td>
+          <td><%= link_to 'delete', list_path(list.id), method: :delete,data: { confirm: 'do you really want to delete this?'} %></td>
         </tr>
       <% end %>
     </tbody>
