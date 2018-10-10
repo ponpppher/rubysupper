@@ -1,17 +1,2 @@
-<%= form_with(model:@list, local:true) do |form| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @list.errors.count %> errors found!</h2>
-      <ul>
-        <% @list.errors.full_messages.each do | msg | %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class = "lists_content">
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
+<h2>New Talk</h2>
+<%= render 'form' %>
