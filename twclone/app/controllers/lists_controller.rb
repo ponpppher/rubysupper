@@ -16,6 +16,14 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
   end
+  def update
+    @list = List.find(params[:id])
+    if @list.update(list_params)
+      redirect_to lists_path, notice:"edit talking"
+    else
+      render 'edit'
+    end
+  end
 
   private
   def list_params
