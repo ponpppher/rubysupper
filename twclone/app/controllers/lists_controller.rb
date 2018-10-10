@@ -4,7 +4,15 @@ class ListsController < ApplicationController
     @list = List.all.reverse_order
   end
   def new
-    @list = List.new
+    if params[:back]
+      @list = List.new(list_params)
+    else
+      @list = List.new
+    end
+  end
+  def confirm
+    @list = List.new(list_params)
+    render :new if @list.invalid?
   end
   def create
     @list = List.new(list_params)
@@ -26,10 +34,6 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to lists_path, notice:"delete talk"
-  end
-  def confirm
-    @list = List.new(list_params)
-    
   end
 
   private
