@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :set_list, only:[:edit,:update]
   def index
     @list = List.all.reverse_order
   end
@@ -14,10 +15,8 @@ class ListsController < ApplicationController
     end
   end
   def edit
-    @list = List.find(params[:id])
   end
   def update
-    @list = List.find(params[:id])
     if @list.update(list_params)
       redirect_to lists_path, notice:"edit talking"
     else
@@ -28,5 +27,8 @@ class ListsController < ApplicationController
   private
   def list_params
     params.require(:list).permit(:content)
+  end
+  def set_list
+    @list = List.find(params[:id])
   end
 end
