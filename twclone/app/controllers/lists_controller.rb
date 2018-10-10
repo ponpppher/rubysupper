@@ -27,6 +27,10 @@ class ListsController < ApplicationController
     @list.destroy
     redirect_to lists_path, notice:"delete talk"
   end
+  def confirm
+    @list = List.new(list_params)
+    
+  end
 
   private
   def list_params

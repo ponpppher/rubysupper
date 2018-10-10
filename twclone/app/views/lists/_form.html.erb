@@ -1,5 +1,5 @@
 <%= @list.content %>
-<%= form_with(model:@list, local:true) do |form| %>
+<%= form_with(model:@list, local:true, url:choose_new_or_edit ) do |form| %>
   <% if @list.errors.any? %>
     <div id="error_explanation">
       <h2><%= @list.errors.count %> errors found!</h2>
