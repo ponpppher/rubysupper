@@ -1,7 +1,7 @@
 <%= form_with(model:@list, url: lists_path, local:true) do |form| %>
   <%= form.hidden_field :content %>
   <p>Do you contribute it by the following content?</p>
-  <p>content:<%= @list.content %></p>
+  <p>content:<span><%= @list.content %></span></p>
   <%= form.submit "submit" %>
 <% end %>
 
