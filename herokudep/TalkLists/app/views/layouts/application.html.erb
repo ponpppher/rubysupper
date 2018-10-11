@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twclone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class = "container">
+
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/lists">TalkList</a></li>
+            <li><a href="/lists/new">NewTalk</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <%= yield %>
+
+      <footer>
+        <div>
+          <p>Dive into code</p>
+        </div>
+      </footer>
+
+    </div>
+  </body>
+</html>
