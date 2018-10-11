@@ -1,4 +1,3 @@
-confirm page
 <%= form_with(model:@list, url: lists_path, local:true) do |form| %>
   <%= form.hidden_field :content %>
   <p>content:<%= @list.content %></p>
