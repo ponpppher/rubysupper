@@ -1,0 +1,6 @@
+<%= form_with(model:@list, local:true, url: choose_new_or_edit) do |form| %>
+
+  <%= form.text_field :content %>
+
+  <%= form.submit %>
+<% end %>

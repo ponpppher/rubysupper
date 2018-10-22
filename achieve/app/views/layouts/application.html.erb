@@ -10,6 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class = "container">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/lists">TalkList</a></li>
+            <li><a href="/lists/new">NewTalk</a></li>
+          </ul>
+        </nav>
+      </header>
+
+        <%= yield %>
+
+      <footer>
+        <div>
+          <p>Dive into code</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
