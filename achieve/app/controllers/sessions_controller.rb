@@ -8,12 +8,16 @@ class SessionsController < ApplicationController
 
     # confirm user exist and password authenticate
     if user && user.authentecate(params[:session][:password])
-      # move to log in page
-      redirect_to sessions_new_path
+      # set userid into session
+      session[:user_id] = user.id
+      # move to user detail page
+      redirect_to user_path(user.id)
     else
       # display message
       flash.now[:danger] = "login failed"
       # display login page
       redner 'new'
     end
+  end
+
 end
