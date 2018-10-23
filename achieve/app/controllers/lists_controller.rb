@@ -13,11 +13,15 @@ before_action :set_list, only:[:edit,:update,:destroy]
 
   def confirm
     @list = List.new(list_params)
+    @list.user_id = current_user.id
     render :new if @list.invalid?
   end
 
   def create
-    List.create(list_params)
+    @list = List.new(list_params)
+    @list.user_id = current_user.id
+    @list.save
+    #List.create(list_params)
     redirect_to lists_path
   end
   def edit
