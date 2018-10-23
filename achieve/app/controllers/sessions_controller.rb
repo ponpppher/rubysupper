@@ -14,10 +14,16 @@ class SessionsController < ApplicationController
       redirect_to user_path(user.id)
     else
       # display message
-      flash.now[:danger] = "login_failed"
+      flash.now[:danger] = 'login failed'
       # display login page
       render 'new'
     end
+  end
+
+  def destroy
+  session.delete(:user_id)
+    flash.now[:notice] = 'log out'
+    redirect_to new_session_path
   end
 
 end
