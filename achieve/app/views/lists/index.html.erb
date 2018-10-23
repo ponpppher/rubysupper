@@ -8,6 +8,7 @@
       <% @list.each do | list | %>
           <tr class="table_content">
               <td><%= list.content %></td>
+              <td>user:<%= list.user.name %></td>
           </tr>
           <tr class="btn btn_eddit">
               <td><%= link_to 'edit', edit_list_path(list.id), data: {confirm: 'edit it?'} %></td>
