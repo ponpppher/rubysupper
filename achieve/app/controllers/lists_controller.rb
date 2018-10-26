@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-before_action :set_list, only:[:edit,:update,:destroy]
+before_action :set_list, only:[:edit, :show, :update, :destroy]
   def index
     @list = List.all.reverse_order
   end
@@ -9,6 +9,10 @@ before_action :set_list, only:[:edit,:update,:destroy]
     else
       @list = List.new
     end
+  end
+
+  def show
+    @favorite = current_user.favorites.find_by(list_id: @list.id)
   end
 
   def confirm

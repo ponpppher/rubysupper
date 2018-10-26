@@ -13,6 +13,7 @@
           <tr class="btn btn_eddit">
               <td><%= link_to 'edit', edit_list_path(list.id), data: {confirm: 'edit it?'} %></td>
               <td><%= link_to 'delete', list_path(list.id), method: :delete %></td>
+              <td><%= link_to 'detail', list_path(list.id) %></td>
           </tr>
       <% end %>
     </tbody>

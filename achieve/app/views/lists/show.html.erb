@@ -1,6 +1,12 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
-<% @list.each do | list | %>
-  <%= list.content %>
+list:<%= @list.user_id %>
+current_user:<%= current_user.id %>
+favorite:<%= @favorite %>
+<% unless @list.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'delete favo', favorite_path(id: @favorite.id ), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'add favo', favorites_path(list_id:@list.id), method: :post, class: 'btn btn-danger' %>
+  <% end %>
 <% end %>
-   
