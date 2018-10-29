@@ -22,7 +22,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
 
   def update
     if @feed.update(feed_params)
-      redirect_to feeds_path, notice:"edit feed done"
+      redirect_to feeds_path, notice:"feed edited"
     else
       redirect_to 'edit'
     end
@@ -30,7 +30,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
 
   def destroy
     @feed.destroy
-    redirect_to feeds_path
+    redirect_to feeds_path, notice:"feed deleted"
   end
 
 private
