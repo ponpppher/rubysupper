@@ -5,7 +5,16 @@ before_action :set_feed, only:[:edit, :update, :destroy]
   end
 
   def new
-    @feed = Feed.new
+    if params[:back]
+      @feed = Feed.new(feed_params)
+    else
+      @feed = Feed.new
+    end
+  end
+
+  def confirm
+    @feed = Feed.new(feed_params)
+    redirect_to 'new' if @feed.invalid?
   end
 
   def create

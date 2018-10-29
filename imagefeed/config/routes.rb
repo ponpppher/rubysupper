@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   root "feeds#top.html"
-  resources :feeds
+  resources :feeds do
+    collection do
+      post :confirm
+    end
+  end
 end
