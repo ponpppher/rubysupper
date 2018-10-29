@@ -9,9 +9,12 @@ before_action :set_feed, only:[:edit, :update, :destroy]
   end
 
   def create
-    Feed.create(feed_params)
-
-    redirect_to feeds_path 
+    @feed = Feed.new(feed_params)
+    if @feed.save
+      redirect_to feeds_path, notice: 'new feed posted'
+    else
+      render 'new'
+    end 
   end
 
   def edit
