@@ -1,5 +1,6 @@
 class FeedsController < ApplicationController
   def index
+    @feed = Feed.all.reverse_order
   end
 
   def new
