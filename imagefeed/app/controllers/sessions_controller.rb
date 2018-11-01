@@ -18,4 +18,14 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    # clear session
+    session.delete(:user_id)
+    # show logout message
+    flash[:notice]="logout"
+
+    # return to loginpage
+    redirect_to new_session_path
+  end
 end
