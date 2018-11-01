@@ -22,13 +22,16 @@
               </div>
               <div>
                 <li><a href="/users/new">Sign up</a></li>
-                <li><a href="/">Login</a></li>
+                <li><a href="/sessions/new">Login</a></li>
               </div>
             </div>
           </ul>
         </nav>
       </header>
 
+      <% flash.each do|key, value| %>
+        <%= content_tag(:div, value, class:"#{key}") %>
+      <% end %>
       
       <%= yield %>
 
