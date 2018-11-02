@@ -14,11 +14,13 @@ before_action :set_feed, only:[:edit, :update, :destroy]
 
   def confirm
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
     redirect_to 'new' if @feed.invalid?
   end
 
   def create
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
     if @feed.save
       redirect_to feeds_path, notice: 'new feed posted'
     else

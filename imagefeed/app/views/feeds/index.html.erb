@@ -7,8 +7,9 @@
     <tbody>
       <% @feed.each do | feed | %>
         <tr class = "table_content">
-          <td><%= feed.content %></td>
-          <td><%= image_tag feed.image.url %></td>
+          <td>user:<%= feed.user.name %></td>
+          <td>content:<%= feed.content %></td>
+          <td>image:<%= image_tag feed.image.url %></td>
         </tr>
         <tr class = "btn btn_eddit">
           <td><%= link_to 'edit', edit_feed_path(feed.id) %></td>

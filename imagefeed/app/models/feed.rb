@@ -4,4 +4,6 @@ class Feed < ApplicationRecord
   validates:content, length:{maximum:255}
 
   mount_uploader :image, ImageUploader
+
+  belongs_to :user
 end
