@@ -19,10 +19,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_081926) do
     t.text "content"
   end
 
-  create_table "lists", force: :cascade do |t|
-    t.text "content"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
