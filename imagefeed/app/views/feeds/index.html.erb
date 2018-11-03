@@ -7,11 +7,11 @@
     <tbody>
       <% @feed.each do | feed | %>
         <tr class = "user_name">
-          <td>user:<%= feed.user.name %></td>
+          <td>user:<strong><%= feed.user.name %></strong></td>
         </tr>
         <tr class = "table_content">
-          <td>image:<%= image_tag feed.image.url %></td>
-          <td>content:<%= feed.content %></td>
+          <td class="img-thumbnail">image:<%= image_tag feed.image.url %></td>
+          <td>content:<strong><%= feed.content %></strong></td>
         </tr>
 
         <tr class="btn btn-default">
