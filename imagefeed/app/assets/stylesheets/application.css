@@ -37,8 +37,7 @@ header ul a{
 }
 
 .main-header{
-    padding-bottom:15%;
-    width:100%;
+    padding-bottom: 15%;
     background-image: url("/assets/camera.jpg");
     background-attachment: fixed;
     background-size:cover;
@@ -47,8 +46,9 @@ header ul a{
 .container{
     position: relative;
     margin:0 auto;
+    min-width: 100%;
     min-height: 100%;
-    padding-bottom: 70px;
+    padding: 0px 0px 70px 0px;
 }
 
 .menue_items{
