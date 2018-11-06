@@ -48,7 +48,7 @@ header ul a{
     margin:0 auto;
     min-width: 100%;
     min-height: 100%;
-    padding: 0px 0px 70px 0px;
+    padding: 0px 0px 70px 0px !important;
 }
 
 .menue_items{
