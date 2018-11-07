@@ -1,6 +1,7 @@
 
 <% @feed.each do | feed | %>
-  <%= feed.user.id %>
+  <% if feed.user_id == current_user.id %>
+    <%= feed.content %>
+    hit
+  <% end %>
 <% end %>
-
-<%= @user %>
