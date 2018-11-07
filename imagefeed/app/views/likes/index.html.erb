@@ -1,5 +1,5 @@
 
-<% @feed.each do | feed | %>
+<% @like.each do | like | %>
   <% if feed.user_id == current_user.id %>
     <%= feed.content %>
     hit

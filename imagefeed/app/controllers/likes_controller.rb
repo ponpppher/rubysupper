@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
   def index
-    @feed = Feed.all
+    @like = current_user.favorites
   end
 end
