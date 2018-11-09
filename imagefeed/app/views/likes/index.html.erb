@@ -9,7 +9,6 @@
               <p>user:<%= like.user.name %></p>
               <h3>content</h3>
               <p><strong><%= like.content %></strong></p>
-              feed id:<%= like.id %>
               <p class="btn btn-default"><%= link_to 'unlike', like_path(id: like.id), method: :delete %></p>
             </div>
           </td>
