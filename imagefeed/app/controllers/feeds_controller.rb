@@ -24,7 +24,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
     @feed.user_id = current_user.id
     @user = User.find_by(id:current_user.id)
     if @feed.save
-      ContactMailer.contact_mail(@feed, @user).deliver
+#      ContactMailer.contact_mail(@feed, @user).deliver
       redirect_to feeds_path, notice: 'new feed posted'
     else
       render :new

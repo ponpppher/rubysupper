@@ -19,8 +19,13 @@
             <div class="menue_items">
               <div>
                 <li><a href="/"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-                <li><a href="/feeds"><span class="glyphicon glyphicon-picture"> FeedList</span></a></li>
-                <li><a href="/feeds/new"><span class="glyphicon glyphicon-camera"> NewFeed</span></a></li>
+                <% if logged_in? %>
+                  <li><a href="/feeds"><span class="glyphicon glyphicon-picture"> FeedList</span></a></li>
+                  <li><a href="/feeds/new"><span class="glyphicon glyphicon-camera"> NewFeed</span></a></li>
+                <% else %>
+                  <li><a href="/sessions/new"><span class="glyphicon glyphicon-picture"> FeedList</span></a></li>
+                  <li><a href="/sessions/new"><span class="glyphicon glyphicon-camera"> NewFeed</span></a></li>
+                <% end %>
               </div>
               <div>
                 <% if logged_in? %>
