@@ -12,7 +12,7 @@
               <p>user:<%= feed.user.name %></p>
               <h3>content</h3>
               <p><strong><%= feed.content %></strong>
-                <% if current_user.present? %>
+                <% if logged_in? %>
                   <% if current_user.id == feed.user_id %>
                     <p class="btn btn-default"><%= link_to 'edit', edit_feed_path(feed.id) %></p>
                     <p class="btn btn-default"><%= link_to 'destroy', feed_path(feed.id), method: :delete, data: {confirm: 'do you really want to delete this?'} %></p>

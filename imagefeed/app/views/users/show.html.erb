@@ -1,4 +1,6 @@
 <h1><%= @user.name %>'s detail page</h1>
 <p>mail:<%= @user.email %></p>
 
-<%= link_to 'your liked feeds', likes_path %>
+<% if logged_in? %>
+  <%= link_to 'your liked feeds', likes_path %>
+<% end %>

@@ -1,6 +1,9 @@
 class LikesController < ApplicationController
   def index
-    @like = current_user.favorite_feed
+    if logged_in?
+      @like = current_user.favorite_feed
+      @user = current_user.id
+    end
   end
 
   def destroy
