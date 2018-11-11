@@ -36,6 +36,9 @@ header ul a{
     text-decoration: none;
 }
 
+#error_explanation ul{
+    list-style-type: none;
+}
 .main-header{
     padding-bottom: 15%;
     background-image: url("/assets/camera.jpg");
