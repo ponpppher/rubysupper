@@ -14,14 +14,13 @@ before_action :set_feed, only:[:edit, :update, :destroy]
   end
 
   def confirm
-    @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed = current_user.feeds.build(feed_params)
+    
     render :new if @feed.invalid?
   end
 
   def create
-    @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id
+    @feed = current_user.feeds.build(feed_params)
     @user = User.find_by(id:current_user.id)
     if @feed.save
 #      ContactMailer.contact_mail(@feed, @user).deliver
@@ -48,6 +47,7 @@ before_action :set_feed, only:[:edit, :update, :destroy]
   end
 
   private
+
   def feed_params
     params.require(:feed).permit(:content, :image, :image_cache)
   end
